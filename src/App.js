@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Header from "./components/Header";
+import SideDrawer from "./components/SideDrawer";
+import Overlay from "./components/Overlay";
+import Hamburger from "./components/Hamburger";
+import Footer from "./components/Footer";
+import { Route } from "react-router-dom";
 
-function App() {
+const App = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleHamburgerMenuClick = () => {
+    setMenuOpen(!menuOpen);
+  };
+  const handleOverlayClick = () => {
+    setMenuOpen(!menuOpen);
+  };
+  const handleSidedrawerNavbarLinkClick = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Route render={(props) => <Header {...props} />} />
+      <Hamburger menuOpen={menuOpen} onMenuClick={handleHamburgerMenuClick} />
+      <SideDrawer
+        menuOpen={menuOpen}
+        onSidedrawerNavbarLinkClick={handleSidedrawerNavbarLinkClick}
+      />
+      <Overlay menuOpen={menuOpen} onOverlayClick={handleOverlayClick} />
+      <Footer />
+    </>
   );
-}
+};
 
 export default App;
