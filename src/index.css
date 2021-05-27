@@ -21,13 +21,15 @@ header {
 /********************/
 
 .hamburger_menu {
-  width: 4.5rem;
-  height: 4.5rem;
+  width: 3rem;
+  height: 3rem;
   position: fixed;
   top: 0rem;
   right: 0.5rem;
   display: none;
   z-index: 400;
+  border-radius: 50%;
+  background-color: gainsboro;
 }
 
 .hamburger_menu-line-container {
@@ -46,13 +48,13 @@ header {
 .hamburger_menu-line-1 {
   width: 100%;
   height: 0.2rem;
-  background-color: #a6a6a6;
+  background-color: black;
 }
 
 .hamburger_menu-line-3 {
   width: 100%;
   height: 0.2rem;
-  background-color: #a6a6a6;
+  background-color: black;
 }
 
 /***************************/
@@ -76,6 +78,7 @@ header {
 
 .navbar-link {
   font-size: 1.4rem;
+  font-weight: 600;
   cursor: pointer;
   color: #a6a6a6;
   font-family: "Roboto Mono", monospace;
@@ -91,13 +94,15 @@ header {
 /********************/
 
 .sideDrawer {
-  width: 100%;
+  width: 20rem;
   height: 31vh;
   background-color: #262626;
   position: absolute;
+  top: 0;
+  right: 0;
   z-index: 200;
-  border-top: 0.1rem solid #595959;
-  border-bottom: 0.1rem solid #595959;
+  border: 0.2rem solid black;
+  border-radius: 1rem;
 }
 
 .sideDrawer-navbar {
@@ -117,7 +122,8 @@ header {
 
 .sideDrawer-navbar-link {
   width: 100%;
-  font-size: 1.4rem;
+  font-size: 2rem;
+  font-weight: 700;
   text-decoration: none;
   color: #a6a6a6;
 }
