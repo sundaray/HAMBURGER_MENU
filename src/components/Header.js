@@ -1,12 +1,25 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Hamburger from "./Hamburger";
+import SideDrawer from "./SideDrawer";
+import Overlay from "./Overlay";
 
-const Header = () => {
+const Header = ({
+  menuOpen,
+  onMenuClick,
+  onOverlayClick,
+  onSidedrawerNavbarLinkClick,
+}) => {
   return (
     <header>
+      <Hamburger menuOpen={menuOpen} onMenuClick={onMenuClick} />
+      <SideDrawer
+        menuOpen={menuOpen}
+        onSidedrawerNavbarLinkClick={onSidedrawerNavbarLinkClick}
+      />
+      <Overlay menuOpen={menuOpen} onOverlayClick={onOverlayClick} />
+
       <nav className="navbar">
-        <Hamburger />
         <ul className="navbar-list">
           <li className="navbar-list-item">
             <NavLink

@@ -1,33 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "./components/Header";
-import SideDrawer from "./components/SideDrawer";
-import Overlay from "./components/Overlay";
-import Hamburger from "./components/Hamburger";
 import Footer from "./components/Footer";
-import { Route } from "react-router-dom";
+import { useCycle } from "framer-motion";
 
 const App = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const handleHamburgerMenuClick = () => {
-    setMenuOpen(!menuOpen);
-  };
-  const handleOverlayClick = () => {
-    setMenuOpen(!menuOpen);
-  };
-  const handleSidedrawerNavbarLinkClick = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const [menuOpen, cycleMenuOpen] = useCycle(false, true);
 
   return (
     <>
-      <Route render={(props) => <Header {...props} />} />
-      <Hamburger menuOpen={menuOpen} onMenuClick={handleHamburgerMenuClick} />
-      <SideDrawer
+      <Header
         menuOpen={menuOpen}
-        onSidedrawerNavbarLinkClick={handleSidedrawerNavbarLinkClick}
+        onMenuClick={cycleMenuOpen}
+        onSidedrawerNavbarLinkClick={cycleMenuOpen}
+        onOverlayClick={cycleMenuOpen}
       />
-      <Overlay menuOpen={menuOpen} onOverlayClick={handleOverlayClick} />
+
       <Footer />
     </>
   );
