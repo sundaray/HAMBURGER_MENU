@@ -14,8 +14,6 @@ const App = () => {
         onSidedrawerNavbarLinkClick={cycleMenuOpen}
         onOverlayClick={cycleMenuOpen}
       />
-
-      <Footer />
     </>
   );
 };
